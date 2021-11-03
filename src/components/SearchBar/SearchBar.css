@@ -1,0 +1,6 @@
+.search-bar{
+    display: flex;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+}

@@ -1,0 +1,9 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+}
+.navbar > a {
+    color: inherit;
+    text-decoration: none;
+}
