@@ -15,7 +15,7 @@ const CardsContainer = () => {
             .catch((error) => console.error(error))
             .finally(() => setTimeout(() => {
                 setLoading(false)
-            }, 1500))
+            }, 500))
     }, [])
 
     if (loading) {
@@ -25,8 +25,7 @@ const CardsContainer = () => {
     } else {
         return (
             <section className="cards-container">
-                {movies.results.map((movie, index) => <MovieCard key={index} title={movie.original_title} img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} rating={movie.vote_average} />)}
-                {console.log(movies)}
+                {movies.results.map((movie, index) => <MovieCard key={index} id={movie.id} title={movie.original_title} img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} rating={movie.vote_average} overview={movie.overview} genre_ids={movie.genre_ids} />)}
             </section>
         )
     }

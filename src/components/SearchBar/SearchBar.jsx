@@ -10,15 +10,15 @@ const Search = styled('div')(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
+        marginLeft: theme.spacing(1),
+        width: 'auto',
     },
-  }));
+}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
@@ -37,17 +37,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchBar = () => {
     const [state, setstate] = React.useState('')
+    
+    const [moviesList, setMoviesList] = React.useState({})
     const handleSearch = (evt) => {
         setstate(evt.target.value)
     }
     const search = () => {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${'392eca317dc0880c7fc434bb6bb210a6'}&language=es&query=${state}`)
-        .then(response => response.json())
-        .then(data => console.log(data))
+            .then(response => response.json())
+            .then(data => setMoviesList(data.results))
+            .catch(error => console.error(error))
     }
+    React.useEffect(() => {
+        console.log(moviesList)
+    }, [moviesList])
     return (
         <Search>
-            <IconButton onClick={search}>
+            <IconButton onClick={search} sx={{ color: 'white' }}>
                 <SearchRoundedIcon />
             </IconButton>
             <StyledInputBase

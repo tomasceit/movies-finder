@@ -1,8 +1,32 @@
-.movie-card {
-    margin: 1rem;
-}
-.card-image {
-    border-radius: 5px;
+.card-image, .card-image > img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     min-height: 450px;
     max-width: 300px;
+}
+.card-content {
+    padding: 0 1rem;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-title {
+    max-width: 210px;
+}
+.movie-description {
+    background-color: #FFFFFF;
+    color: black;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    overflow: scroll;
+    max-height: 450px;
+    bottom: 80px;
+    right: 0;
+    left: 0;
+    transform: translateY(300%);
+    transition: transform 0.4s ease-in-out;
+}
+.card-image:hover .movie-description {
+    transform: translateY(0%)
 }

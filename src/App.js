@@ -5,7 +5,7 @@ import theme from "./theme/Theme";
 import { ThemeProvider } from '@mui/material/styles';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import MovieDetail from './pages/MovieDetail';
+import MovieDetails from './pages/MovieDetails';
 import Genre from './pages/Genre';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/genres/:genre" element={<Genre />} />
-          <Route exact path="/movie/:id" element={<MovieDetail />} />
+          <Route exact path="/movie/:id" element={<MovieDetails />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
