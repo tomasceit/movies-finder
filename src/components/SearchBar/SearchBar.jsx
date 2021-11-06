@@ -4,6 +4,7 @@ import { styled, alpha } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import InputBase from '@mui/material/InputBase';
+import { useNavigate } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -37,23 +38,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchBar = () => {
     const [state, setstate] = React.useState('')
+    const navigate = useNavigate();
     
-    const [moviesList, setMoviesList] = React.useState({})
     const handleSearch = (evt) => {
         setstate(evt.target.value)
     }
-    const search = () => {
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${'392eca317dc0880c7fc434bb6bb210a6'}&language=es&query=${state}`)
-            .then(response => response.json())
-            .then(data => setMoviesList(data.results))
-            .catch(error => console.error(error))
+    const onSearch = () => {
+        state !== '' ?
+        navigate(`/search/${state}`)
+        : console.log('escribi algo mostro')
     }
-    React.useEffect(() => {
-        console.log(moviesList)
-    }, [moviesList])
+    
     return (
         <Search>
-            <IconButton onClick={search} sx={{ color: 'white' }}>
+            <IconButton onClick={onSearch} sx={{ color: 'white' }}>
                 <SearchRoundedIcon />
             </IconButton>
             <StyledInputBase

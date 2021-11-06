@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <AppBar sx={{ backgroundColor: '#18181b' }}>
+        <AppBar
+            position='absolute'
+            sx={{ backgroundColor: '#18181b' }}
+        >
             <Toolbar className="navbar">
                 <Link to='/home'>
                     <IconButton

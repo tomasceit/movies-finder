@@ -5,7 +5,7 @@ import MovieDetail from '../components/MovieDetail/MovieDetail'
 const MovieDetails = () => {
     const { id } = useParams();
     return (
-        <MovieDetail id={id} />
+            <MovieDetail id={id} />
     )
 }
 

@@ -7,31 +7,23 @@ import { Link } from 'react-router-dom'
 const Card = styled('div')(({ theme }) => ({
     position: 'relative',
     margin: '1rem',
-    maxWidth: '300px',
+    width: '300px !important',
     borderRadius: '5px',
+    border: '0.3px solid transparent',
     overflow: 'hidden',
     backgroundColor: alpha(theme.palette.common.white, 0.05),
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.white, 0.1),
+        border: `0.3px solid ${theme.palette.primary.light}`,
     },
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
         width: 'auto',
     },
 }));
-const api_key = '392eca317dc0880c7fc434bb6bb210a6'
 
-const MovieCard = ({ id, title, img, rating, overview, genre_ids }) => {
-    // eslint-disable-next-line no-unused-vars
-    const [genreList, setGenreList] = React.useState([])
-    React.useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=es`)
-            .then((response) => response.json())
-            .then(data => setGenreList(data))
-    }, [])
-
-
-
+const MovieCard = ({ id, title, img, rating, overview }) => {
+    
     return (
         <Card>
             <div className="card-image">

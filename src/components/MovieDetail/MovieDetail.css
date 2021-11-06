@@ -1,0 +1,14 @@
+.details-container {
+    display: flex;
+    margin: 6rem 8rem;
+}
+.movie-poster {
+    height: 550px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 1rem;
+}
+.movie-title {
+    margin: 0 3rem;
+    width: 1200px;
+}
