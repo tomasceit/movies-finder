@@ -36,7 +36,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         [theme.breakpoints.down('sm')]: {
             width: '4ch',
             '&:focus': {
-                width: '18ch',
+                width: '10ch',
             },
         },
     },

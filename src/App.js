@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/films" element={<Home />} />
           <Route exact path="/:sort/page/:number" element={<MoviesList />} />
-          <Route exact path="/genres/:genre" element={<Genre />} />
+          <Route exact path="/genres/:genre/:id/page=:number" element={<Genre />} />
           <Route exact path="/search/:searched" element={<Search />} />
           <Route exact path="/films/:id" element={<MovieDetails />} />
           <Route path="*" element={<Home />} />
