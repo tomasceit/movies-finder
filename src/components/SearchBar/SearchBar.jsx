@@ -28,9 +28,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '12ch',
+            width: '10ch',
             '&:focus': {
                 width: '20ch',
+            },
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '4ch',
+            '&:focus': {
+                width: '18ch',
             },
         },
     },
@@ -39,18 +45,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const SearchBar = () => {
     const [state, setstate] = React.useState('')
     const navigate = useNavigate();
-    
+    const [empty, setEmpty] = React.useState(false)
     const handleSearch = (evt) => {
         setstate(evt.target.value)
     }
     const onSearch = () => {
-        state !== '' ?
-        navigate(`/search/${state}`)
-        : console.log('escribi algo mostro')
+        if (state !== '') {
+            navigate(`/search/${state}`)
+        } else {
+        setEmpty(true)
+        setTimeout(() => {
+            setEmpty(false)
+            }, 5000)
+        }
     }
-    
+
     return (
-        <Search>
+        <div>
+        <Search sx={{ border: empty && '1px solid #d32f2f', marginTop: empty && '12px' }}>
             <IconButton onClick={onSearch} sx={{ color: 'white' }}>
                 <SearchRoundedIcon />
             </IconButton>
@@ -60,6 +72,8 @@ const SearchBar = () => {
                 onChange={handleSearch}
             />
         </Search>
+        {empty && <p style={{ fontSize: '0.8rem', fontStyle: 'oblique', color: '#d32f2f', margin: '0.2rem'}}>El campo de busqueda esta vacío</p>}
+        </div>
     )
 }
 

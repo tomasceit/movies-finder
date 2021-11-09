@@ -29,11 +29,11 @@ const MovieCard = ({ id, title, img, rating, overview }) => {
             <div className="card-image">
                 <img src={img} alt={title} />
                 <div className="movie-description">
-                    <h3>Descripción:</h3>
+                    <h3 style={{ paddingTop: '0.7rem' }}>Descripción:</h3>
                     <p>{overview}</p>
                 </div>
             </div>
-            <Link to={`/movie/${id}`}>
+            <Link to={`/films/${id}`}>
                 <CardActionArea>
                     <div className="card-content">
                         <h3 className="card-title">{title}</h3>
@@ -45,6 +45,7 @@ const MovieCard = ({ id, title, img, rating, overview }) => {
                                     : rating >= 5 ? 'warning' : 'error'}
                             />
                             <Box
+                                className="rating-number"
                                 sx={{
                                     top: 0,
                                     left: '77%',

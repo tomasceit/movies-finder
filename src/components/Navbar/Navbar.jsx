@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './Navbar.css'
 import SearchBar from '../SearchBar/SearchBar'
-import { AppBar, Toolbar, IconButton, Typography } from '@mui/material'
+import { AppBar, Toolbar, IconButton, Typography, Stack, Button } from '@mui/material'
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import { Link } from 'react-router-dom'
 
@@ -22,6 +22,7 @@ const Navbar = () => {
                     >
                         <GroupWorkIcon color="primary" fontSize="large" sx={{ marginRight: '0.5rem' }} />
                         <Typography
+                            className="title"
                             variant="h6"
                             noWrap
                             component="div"
@@ -32,7 +33,12 @@ const Navbar = () => {
                     </IconButton>
 
                 </Link>
-                <SearchBar />
+                <Stack direction="row" spacing={2}>
+                    <Link to='/films'>
+                        <Button variant="films" sx={{ fontSize: '1rem' }}>Films</Button>
+                    </Link>
+                    <SearchBar />
+                </Stack>
             </Toolbar>
         </AppBar>
     )

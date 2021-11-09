@@ -22,32 +22,56 @@ const MovieDetail = ({ id }) => {
         return <LoadingIcon />
     } else {
         return (
-            <div className="details-container">
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt='movie poster' className='movie-poster' />
+            <>
+                <div className="details-container">
+                    <div>
+                        <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt='movie poster' className='movie-poster' />
+                        <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                            <Rating name="movie-rating" value={movie.vote_average / 2} precision={0.5} readOnly />
+                            <p>{movie.vote_average / 2}</p>
+                            <p>|</p>
+                            <p>{movie.vote_count} votes</p>
+                        </div>
+                        <Stack direction="row" spacing={2} sx={{ marginTop: '1rem', justifyContent: 'center' }}>
+                            {movie.genres.map((genre, index) => {
+                                return <Chip key={index} label={genre.name} variant="outlined" sx={{ fontSize: '18px', color: 'primary.light', borderColor: `primary.light` }} />
+                            })}
+                        </Stack>
+                    </div>
+                    <div className="movie-title">
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <Typography variant="h3">{movie.original_title}</Typography>
+                            <Typography variant="subtitle1" gutterBottom component="h4" sx={{ fontSize: '32px', margin: '0 2rem', fontWeight: '200' }}>({movie.title})</Typography>
+                        </div>
+                        <Divider sx={{ borderColor: `primary.light`, margin: '1.2rem 0' }} />
+                        <Typography variant="subtitle1" sx={{ fontWeight: '100', fontStyle: 'oblique' }} >{movie.tagline}</Typography>
+                        <Typography variant="body1" sx={{ fontSize: '22px', fontWeight: '300', margin: 4 }}>{movie.overview}</Typography>
+                    </div>
+                </div>
+
+                <div className="details-container-mobile">
+                    <div className="main-info-mobile">
+                        <div className="title-mobile">
+                            <Typography variant="h3" sx={{ fontSize: '1.2rem' }}>{movie.original_title}</Typography>
+                            <Divider sx={{ borderColor: `primary.light`, margin: '1.2rem 0' }} />
+                            <Typography variant="subtitle1" sx={{ fontWeight: '100', fontStyle: 'oblique', fontSize: '0.7rem' }} >{movie.tagline}</Typography>
+                            <Typography variant="body1" sx={{ fontSize: '16px', fontWeight: '300', margin: '1rem 0' }}>{movie.overview}</Typography>
+                        </div>
+                        <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt='movie poster' className='movie-poster-mobile' />
+                    </div>
                     <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
                         <Rating name="movie-rating" value={movie.vote_average / 2} precision={0.5} readOnly />
                         <p>{movie.vote_average / 2}</p>
                         <p>|</p>
                         <p>{movie.vote_count} votes</p>
-                        {console.log(movie)}
                     </div>
                     <Stack direction="row" spacing={2} sx={{ marginTop: '1rem', justifyContent: 'center' }}>
-                        {movie.genres.map((genre) => {
-                            return <Chip label={genre.name} variant="outlined" sx={{ fontSize: '18px', color: 'primary.light', borderColor: `primary.light` }} />
+                        {movie.genres.map((genre, index) => {
+                            return <Chip key={index} label={genre.name} variant="outlined" sx={{ fontSize: '18px', color: 'primary.light', borderColor: `primary.light` }} />
                         })}
                     </Stack>
                 </div>
-                <div className="movie-title">
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography variant="h3">{movie.original_title}</Typography>
-                        <Typography variant="subtitle1" gutterBottom component="h4" sx={{ fontSize: '32px', margin: '0 2rem', fontWeight: '200' }}>({movie.title})</Typography>
-                    </div>
-                    <Divider sx={{ borderColor: `primary.light`, margin: '1.2rem 0' }} />
-                    <Typography variant="subtitle1" sx={{ fontWeight: '100', fontStyle: 'oblique' }} >{movie.tagline}</Typography>
-                    <Typography variant="body1" sx={{ fontSize: '22px', fontWeight: '300', margin: 4 }}>{movie.overview}</Typography>
-                </div>
-            </div>
+            </>
         )
     }
 }

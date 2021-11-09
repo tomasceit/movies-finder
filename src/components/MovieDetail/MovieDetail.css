@@ -12,3 +12,31 @@
     margin: 0 3rem;
     width: 1200px;
 }
+.details-container-mobile {
+    display: none;
+    margin: 5rem 1rem;
+}
+@media (max-width: 576px) {
+    .details-container {
+      display: none;
+    }
+    .details-container-mobile {
+        display: initial;
+    }
+}
+
+/* MOBILE */
+.main-info-mobile {
+    display: flex;
+    margin-bottom: 4rem;
+}
+.title-mobile {
+    margin: 1rem;
+    max-width: 60%;
+}
+.movie-poster-mobile {
+    width: 207px;
+    height: 310px;
+    border-radius: 5px;
+    border: 1px solid;
+}

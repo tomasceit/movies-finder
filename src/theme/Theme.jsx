@@ -13,6 +13,19 @@ const theme = createTheme({
             dark: '#970b79',
         },
     },
+    typography: {
+        fontFamily: [
+            'IBM Plex Sans',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+    },
 });
 
 export default theme;

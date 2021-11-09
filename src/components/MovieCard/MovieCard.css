@@ -39,3 +39,8 @@
 .card-image:hover .movie-description {
     transform: translateY(0%)
 }
+@media (max-width: 596px) {
+    .rating-number {
+        left: 71% !important;
+    }
+  }
