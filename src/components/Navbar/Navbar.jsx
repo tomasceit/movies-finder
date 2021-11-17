@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     return (
         <AppBar
-            position='absolute'
+            position='sticky'
             sx={{ backgroundColor: '#18181b' }}
         >
             <Toolbar className="navbar">
@@ -34,6 +34,7 @@ const Navbar = () => {
 
                 </Link>
                 <Stack direction="row" spacing={2}>
+                    {/* <Button variant="contained" sx={{ fontSize: '1rem', minWidth: '110px' }} disableElevation>Log In</Button> */}
                     <Link to='/films'>
                         <Button variant="films" sx={{ fontSize: '1rem' }}>Films</Button>
                     </Link>

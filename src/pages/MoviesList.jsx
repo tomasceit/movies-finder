@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { Pagination, PaginationItem } from '@mui/material'
+import { Pagination, PaginationItem, Typography, Divider } from '@mui/material'
 import CardsContainer from '../components/CardsContainer/CardsContainer'
 import FilterList from '../components/FilterList/FilterList'
 
@@ -19,6 +19,8 @@ const MoviesList = () => {
         <>
             <div className='my-container'>
                 <FilterList sort={sort} />
+                <Typography variant="h5" component="h2">{sort.replace("_", " ").toUpperCase()} MOVIES</Typography>
+                <Divider sx={{ borderColor: `primary.light`, margin: '0.6rem 0' }} />
                 <CardsContainer sort={sort} pageNumber={number} />
                 <Pagination
                     page={Number(number)}

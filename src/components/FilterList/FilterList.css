@@ -1,0 +1,13 @@
+.MuiToggleButtonGroup-root {
+    display: flex !important;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .MuiToggleButtonGroup-root {
+        justify-content: flex-start;
+    }
+}

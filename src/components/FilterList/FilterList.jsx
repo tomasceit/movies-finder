@@ -1,4 +1,5 @@
 import * as React from 'react'
+import './FilterList.css'
 import { ToggleButtonGroup, ToggleButton, Menu, MenuItem } from '@mui/material'
 import { styled, alpha } from '@mui/material/styles'
 import { useNavigate } from "react-router-dom"
@@ -67,10 +68,10 @@ const FilterList = ({ sort = 'popular' }) => {
 
     const navigate = useNavigate();
     const [alignment, setAlignment] = React.useState(sort)
-    const handleChange = (event, newAlignment) => {
+    const handleChange = (evt, newAlignment) => {
         setAlignment(newAlignment)
-        newAlignment !== "genres"
-            && newAlignment !== null && navigate(`/${newAlignment}/page/1`)
+        newAlignment !== null && newAlignment !== ("genres" || "trending") && navigate(`/${newAlignment}/page/1`);
+        newAlignment === "trending" && navigate('/trending')
     };
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -90,8 +91,8 @@ const FilterList = ({ sort = 'popular' }) => {
                 exclusive
                 onChange={handleChange}
                 size='large'
-                sx={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', flexWrap: 'wrap'}}
             >
+                <StyledToggleButton value="trending">Trending</StyledToggleButton>
                 <StyledToggleButton value="popular">Popular</StyledToggleButton>
                 <StyledToggleButton value="top_rated">Top rated</StyledToggleButton>
                 <StyledToggleButton value="upcoming">Upcoming</StyledToggleButton>
@@ -113,7 +114,7 @@ const FilterList = ({ sort = 'popular' }) => {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
-            >   
+            >
                 {proceda && (genresObject.genres).length !== 0 && (genresObject.genres).map((genre) => <MenuItem key={genre.id} onClick={() => handleClose(genre.name, genre.id)} disableRipple>{genre.name}</MenuItem>)}
             </StyledMenu>
         </>

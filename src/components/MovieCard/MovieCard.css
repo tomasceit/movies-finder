@@ -4,7 +4,6 @@
 }
 .card-image > img {
     max-height: 450px;
-    max-width: 300px;
 }
 .card-image {
     display: flex;
@@ -15,7 +14,7 @@
 }
 .card-content {
     padding: 0 1rem;
-    min-height: 80px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;

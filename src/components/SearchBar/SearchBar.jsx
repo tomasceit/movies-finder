@@ -45,34 +45,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const SearchBar = () => {
     const [state, setstate] = React.useState('')
     const navigate = useNavigate();
-    const [empty, setEmpty] = React.useState(false)
     const handleSearch = (evt) => {
         setstate(evt.target.value)
     }
     const onSearch = () => {
         if (state !== '') {
-            navigate(`/search/${state}`)
-        } else {
-        setEmpty(true)
-        setTimeout(() => {
-            setEmpty(false)
-            }, 5000)
+            navigate(`/search=${state}`)
         }
     }
 
     return (
         <div>
-        <Search sx={{ border: empty && '1px solid #d32f2f', marginTop: empty && '12px' }}>
-            <IconButton onClick={onSearch} sx={{ color: 'white' }}>
-                <SearchRoundedIcon />
-            </IconButton>
-            <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                onChange={handleSearch}
-            />
-        </Search>
-        {empty && <p style={{ fontSize: '0.8rem', fontStyle: 'oblique', color: '#d32f2f', margin: '0.2rem'}}>El campo de busqueda esta vacío</p>}
+            <Search>
+                <IconButton onClick={onSearch} sx={{ color: 'white' }}>
+                    <SearchRoundedIcon />
+                </IconButton>
+                <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                    onChange={handleSearch}
+                />
+            </Search>
         </div>
     )
 }
