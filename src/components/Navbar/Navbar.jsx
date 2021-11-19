@@ -36,7 +36,7 @@ const Navbar = () => {
                 <Stack direction="row" spacing={2}>
                     {/* <Button variant="contained" sx={{ fontSize: '1rem', minWidth: '110px' }} disableElevation>Log In</Button> */}
                     <Link to='/films'>
-                        <Button variant="films" sx={{ fontSize: '1rem' }}>Films</Button>
+                        <Button variant="films" sx={{ fontSize: '1rem', display: 'none' }}>Films</Button>
                     </Link>
                     <SearchBar />
                 </Stack>

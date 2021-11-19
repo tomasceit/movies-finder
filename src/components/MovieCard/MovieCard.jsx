@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Card = styled('div')(({ theme }) => ({
     position: 'relative',
     margin: '1rem',
-    width: '300px !important',
+    minWidth: '300px !important',
     borderRadius: '5px',
     border: '0.3px solid transparent',
     overflow: 'hidden',

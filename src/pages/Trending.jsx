@@ -9,7 +9,7 @@ const Trending = () => {
     const [movies, setMovies] = React.useState({})
     React.useEffect(() => {
         setProceda(false)
-        fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}&language=es`)
             .then(res => res.json())
             .then(data => setMovies(data))
             .finally(() => setProceda(true))

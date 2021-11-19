@@ -18,7 +18,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/films" element={<Home />} />
           <Route exact path="/trending" element={<Trending />} />
           <Route exact path="/:sort/page/:number" element={<MoviesList />} />
           <Route exact path="/genres/:genre/:id/page=:number" element={<Genre />} />

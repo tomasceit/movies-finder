@@ -22,7 +22,7 @@ div#root {
 }
 .my-container {
   margin: 1.3rem auto;
-  max-width: 1340px;
+  width: 1320px;
 }
 a {
   color: inherit;
@@ -30,4 +30,20 @@ a {
 }
 .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon {
   color: white !important;
+}
+
+/* Home page */
+
+.see-more {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.movie-images-list {
+  margin: 1.7rem auto;
+}
+.cards-container-home {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }

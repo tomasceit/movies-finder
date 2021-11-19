@@ -33,8 +33,8 @@ const MovieDetail = ({ id }) => {
                     <div className="main-info">
                         <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt='movie poster' className='movie-poster' />
                         <div className="rating-wrapper">
-                            <Rating name="movie-rating" value={movie.vote_average / 2} precision={0.5} readOnly />
-                            <p>{movie.vote_average / 2}</p>
+                            <Rating name="movie-rating" value={movie.vote_average / 2} precision={0.1} readOnly />
+                            <p>{movie.vote_average / 2} stars</p>
                             <p>|</p>
                             <p>{movie.vote_count} votes</p>
                         </div>
@@ -87,7 +87,7 @@ const MovieDetail = ({ id }) => {
                         <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt='movie poster' className='movie-poster-mobile' />
                         <div className="title-mobile">
                             <Typography variant="h3" sx={{ fontSize: '1.2rem' }}>{movie.original_title}</Typography>
-                            <Divider sx={{ borderColor: `primary.light`, margin: '1.2rem 0' }} />
+                            <Divider sx={{ borderColor: `primary.light`, margin: '0.7rem 0' }} />
                             <Typography variant="subtitle1" sx={{ fontWeight: '100', fontStyle: 'oblique', fontSize: '0.9rem' }} >{movie.tagline}</Typography>
                             <Typography variant="body1" sx={{ fontSize: '16px', fontWeight: '300', margin: '1rem 0' }}>{movie.overview}</Typography>
                         </div>

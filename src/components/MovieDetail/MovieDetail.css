@@ -18,11 +18,10 @@
     margin: 5rem 1rem;
 }
 .rating-wrapper {
-    width: 70%;
+    width: 75%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 3rem;
 }
 .main-info {
     display: flex;
@@ -75,8 +74,9 @@
 }
 .movie-poster-mobile {
     margin: 0.7rem;
-    width: 160px;
-    height: 238px;
+    margin-top: 3.5rem;
+    width: 165px;
+    height: 250px;
     border-radius: 5px;
     border: 1px solid;
     float: right;
