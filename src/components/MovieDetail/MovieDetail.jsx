@@ -98,9 +98,9 @@ const MovieDetail = ({ id }) => {
                         <p>|</p>
                         <p>{movie.vote_count} votes</p>
                     </div>
-                    <Stack direction="row" spacing={2} sx={{ margin: '1rem 0 0 0', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <Stack direction="row" spacing={2} sx={{ margin: '1rem 0 0 0', justifyContent: 'start', alignItems: 'center', flexWrap: 'nowrap', overflowX: 'auto' }}>
                         {movie.genres.map((genre, index) => {
-                            return <Link key={index} to={`/genres/${genre.name}/${genre.id}/page=1`}><Chip key={index} label={genre.name} variant="outlined" sx={{ fontSize: '18px', color: 'primary.light', borderColor: `primary.light`, padding: '0.8rem', margin: '0.7rem' }} /></Link>
+                            return <Link key={index} to={`/genres/${genre.name}/${genre.id}/page=1`}><Chip key={index} label={genre.name} variant="outlined" sx={{ fontSize: '18px', color: 'primary.light', borderColor: `primary.light`, padding: '0.8rem', margin: '0.7rem', cursor: 'pointer' }} /></Link>
                         })}
                     </Stack>
                 </div>
